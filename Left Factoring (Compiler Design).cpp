@@ -27,16 +27,16 @@ int main(){
     }
 
     ///Find Common string
-    int Common,f=0;
+    int Common,f=false;
     for (Common=0; Common<mn; Common++){
         char c=States[0][Common];
         for (j=0; j<States.size(); j++){
             if (States[j][Common]!=c){
-				f=1;
+		f=true;
                 break;
             }
         }
-        if (f) break;
+        if (f==true) break;
     }
     Common--;
     if (Common==-1) puts("Left factor is impossible for this grammar");
