@@ -13,7 +13,7 @@ int main(){
     puts("Input a Grammar like E->ABCd|ABC|ABCEF\n");
     cin>>String;
     String+='|';
-    char nont=String[0];
+    char NonTerminal=String[0];
     vector<string> States;
 
     ///Separate the states.
@@ -32,7 +32,7 @@ int main(){
         char c=States[0][Common];
         for (j=0; j<States.size(); j++){
             if (States[j][Common]!=c){
-		f=true;
+                f=true;
                 break;
             }
         }
@@ -41,12 +41,12 @@ int main(){
     Common--;
     if (Common==-1) puts("Left factor is impossible for this grammar");
     else{
-        printf("%c->",nont);
+        printf("%c->",NonTerminal);
         for (i=0; i<=Common; i++)
             printf("%c",States[0][i]);
-        printf("%c'\n",nont);
+        printf("%c'\n",NonTerminal);
 
-        printf("%c'->",nont);
+        printf("%c'->",NonTerminal);
         for (i=0; i<States.size(); i++){
             for (j=Common+1; j<States[i].size(); j++)
                 printf("%c",States[i][j]);
